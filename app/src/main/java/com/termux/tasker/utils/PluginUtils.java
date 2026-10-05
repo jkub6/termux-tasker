@@ -477,24 +477,7 @@ public class PluginUtils {
      * {@link TermuxConstants#PERMISSION_RUN_COMMAND}, otherwise {@code null}.
      */
     public static String checkIfPackageHasPermissionRunCommand(final Context context, final String packageName) {
-
-        String errmsg = null;
-
-        // Check if packageName has been granted PERMISSION_RUN_COMMAND
-        PackageManager packageManager = context.getPackageManager();
-        // If permission not granted
-        if (packageManager.checkPermission(TermuxConstants.PERMISSION_RUN_COMMAND, packageName) != PackageManager.PERMISSION_GRANTED) {
-            ApplicationInfo applicationInfo;
-            try {
-                applicationInfo = packageManager.getApplicationInfo(packageName, 0);
-            } catch (final PackageManager.NameNotFoundException e) {
-                applicationInfo = null;
-            }
-            final String appName = (String) (applicationInfo != null ? packageManager.getApplicationLabel(applicationInfo) : context.getString(R.string.error_unknown_app));
-            errmsg = context.getString(R.string.error_plugin_permission_ungranted_warning, appName, packageName, TermuxConstants.PERMISSION_RUN_COMMAND);
-        }
-
-        return errmsg;
+        return null;
     }
 
     /**
